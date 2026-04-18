@@ -1,5 +1,3 @@
-.
-
 🏃‍♂️ Body Performance Analytics & Intelligent Prediction
 An end-to-end Machine Learning pipeline designed to analyze human physical performance. This project classifies individuals into performance categories (A–D) and predicts explosive power (Broad Jump distance) using a variety of supervised learning algorithms.
 
