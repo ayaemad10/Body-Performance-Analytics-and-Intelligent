@@ -1,92 +1,62 @@
-📋 Project Overview
+.
 
-This project presents a comprehensive machine learning analysis of human body performance using the Body Performance Dataset. It focuses on classifying individuals into performance categories (A–D) and predicting physical performance metrics such as broad jump distance.
+🏃‍♂️ Body Performance Analytics & Intelligent Prediction
+An end-to-end Machine Learning pipeline designed to analyze human physical performance. This project classifies individuals into performance categories (A–D) and predicts explosive power (Broad Jump distance) using a variety of supervised learning algorithms.
 
-The system applies a full ML pipeline including preprocessing, feature engineering, model training, and evaluation, along with an interactive application for real-world usage.
+🎯 Objectives
+Classification: Categorize individuals into four performance levels (A, B, C, D) based on physical metrics.
 
-🎯 Objective
-Classify individuals into performance levels (A, B, C, D)
-Predict physical performance (broad jump distance) using regression models
-📊 Pipeline Steps
-Step	Description
-1. EDA	Analyze distributions, correlations, and feature importance
-2. Data Cleaning	Remove duplicates, fix invalid values, handle outliers
-3. Feature Engineering	Encoding (gender, class), scaling (StandardScaler)
-4. Train/Test Split	Multiple splits (80/20, 70/30, 50/50)
-5. Modeling	KNN, Decision Tree, SVM, Neural Network, Linear Regression
-6. Evaluation	Accuracy, F1 Score, R², RMSE, Cross-validation
-7. Prediction	Classification + regression predictions
-🤖 Models
-📌 Classification Results
-Model	Accuracy	F1 Score
-KNN	63.09%	0.63
-Decision Tree	72.15%	0.71
-SVM (RBF)	71.31%	0.71
-Neural Network (MLP)	74.80%	0.75
-Linear Regression (adapted)	~51%	~0.48
+Regression: Predict the Broad Jump distance (cm) as a measure of explosive physical power.
 
-✅ Best Model: Neural Network (MLP)
+📊 The ML Pipeline
+The project follows a rigorous data science workflow:
+Stage,Description
+1. EDA,"Distribution analysis, correlation matrices, and identifying feature importance."
+2. Cleaning,"Duplicate removal, handling outliers, and validating data integrity."
+3. Engineering,Categorical encoding (Gender/Class) and feature scaling via StandardScaler.
+4. Modeling,"Comparative analysis of KNN, Decision Trees, SVM, and MLP Neural Networks."
+5. Evaluation,"Assessment using Accuracy, F1-Score, R2, and RMSE."
+🤖 Model Performance
+🏆 Classification (Performance Grade)
+The Neural Network (MLP) emerged as the champion, though many models hit a performance "ceiling" at ~75% due to feature overlap between Class B and C.
+Model,Accuracy,F1 Score
+Neural Network (MLP),74.80%,0.75
+Decision Tree,72.15%,0.71
+SVM (RBF),71.31%,0.71
+KNN,63.09%,0.63
+📏 Regression (Broad Jump Prediction)
+Model,R2 Score,RMSE
+Neural Network,0.803,17.77
+Linear Regression,0.803,17.89
+SVM (SVR),0.798,17.96
+🔑 Key Insights & Challenges
+Top Predictor: sit_and_bend_forward_cm proved to be the strongest indicator of overall performance.
 
-📌 Regression Results (Broad Jump Prediction)
-Model	R² Score	RMSE
-Neural Network	0.803	17.77
-Linear Regression	0.803	17.89
-SVM (SVR)	0.798	17.96
-KNN	0.788	—
-Decision Tree	0.685	22.43
-🚀 Getting Started
-1. Clone the Repository
+The "75% Ceiling": Analysis shows significant data overlap between middle-tier classes (B and C).
+
+Weak Features: Features like blood pressure showed minimal correlation with physical performance categories.
+
+🚀 Interactive Application
+Experience the model in real-time! The integrated Streamlit app allows you to input body metrics and receive an instant performance grade.
+# To run the app locally:
+streamlit run app.py
+🛠️ Installation & Usage
+1.Clone the repo
 git clone https://github.com/ayaemad10/Body-Performance-Analytics-and-Intelligent.git
 cd Body-Performance-Analytics-and-Intelligent
-2. Install Dependencies
+2.Install dependencies
 pip install -r requirements.txt
-3. Run the Project
-python main.py
-🌐 Interactive App
-
-The project includes a Streamlit web application that allows users to:
-
-Input their own body data
-Get instant performance classification
-Explore model insights
-
-Run it using:
-
-streamlit run app.py
+3.Execute the pipeline
+pip install -r requirements.txt
 📁 Project Structure
-Body-Performance-Analytics-and-Intelligent/
-├── data/                # Dataset files
-├── notebooks/           # Jupyter notebooks
-├── src/                 # ML pipeline & models
-├── app.py               # Streamlit app
-├── requirements.txt     # Dependencies
-├── README.md            # Documentation
-└── .gitignore           # Ignore rules
-🔑 Key Features
-sit_and_bend_forward_cm → strongest predictor
-sit_ups_counts → endurance indicator
-broad_jump_cm → explosive power
-age → negatively correlated with performance
-gender → affects strength-related metrics
-📚 Dataset
-Source: Kaggle (Body Performance Dataset)
-Records: 13,393
-Features: 12 (10 numerical + 2 categorical)
-Target: Performance class (A, B, C, D)
-Class Balance: Balanced (~25% each)
-⚠️ Key Insights
-يوجد ceiling في الأداء ~75% لكل الموديلات
-السبب:
-تداخل بين Class B و C
-Features ضعيفة (زي blood pressure)
-عدم وضوح الحدود بين الكلاسات
-🛠️ Tech Stack
-Python
-Pandas / NumPy
-Scikit-learn
-TensorFlow / Keras
-Matplotlib / Seaborn
-Streamlit
-📝 License
+├── data/                # Raw and processed datasets
+├── notebooks/           # Experimental Jupyer Notebooks
+├── src/                 # Modular ML pipeline code
+├── app.py               # Streamlit web application
+├── requirements.txt     # Python dependencies
+└── README.md            # Project documentation
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
+Author: Aya Emad
 
-MIT License — feel free to use and modify.
+
